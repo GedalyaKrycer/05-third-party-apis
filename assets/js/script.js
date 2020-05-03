@@ -1,8 +1,7 @@
 // Saves current time to variable
 var now = moment();
-console.log(now.set('hour', 9))
 
-// Array to capture all of the TextArea Id
+// Stores all of the TextArea Id elements 
 let nineAmInput = $("#nineAmInput"); 
 let tenAmInput = $("#tenAmInput"); 
 let elevenAmInput = $("#elevenAmInput"); 
@@ -16,21 +15,25 @@ let fivePmInput = $("#fivePmInput");
 
 // Assigns a time to each textArea Element in an object
 let textAreaTimeDesignations = {
-    nineAmInput: now.set('hour', 9),
-    tenAmInput: now.set('hour', 10),
-    elevenAmInput: now.set('hour', 11),
-    twelvePmInput: now.set('hour', 12),
-    onePmInput: now.set('hour', 13),
-    twoPmInput: now.set('hour', 14),
-    threePmInput: now.set('hour', 15),
-    fourPmInput: now.set('hour', 16),
-    fivePmInput: now.set('hour', 20)
+    nineAmInput: now.hour(9),
+    tenAmInput: now.hour(10),
+    elevenAmInput: now.hour(11),
+    twelvePmInput: now.hour(12),
+    onePmInput: now.hour(13),
+    twoPmInput: now.hour(14),
+    threePmInput: now.hour(15),
+    fourPmInput: now.hour(16),
+    fivePmInput: now.hour(17)
 };
 
-// Creates an array from the object above
-let textAreaTimeArray = Object.values(textAreaTimeDesignations);
+console.log(textAreaTimeDesignations.fivePmInput);
 
-console.log(textAreaTimeArray);
+
+// Creates an array from the object above
+let textAreaTimeArray = Object.keys(textAreaTimeDesignations);
+
+console.log(textAreaTimeArray[0]);
+
 
 
 
@@ -46,23 +49,30 @@ $("#currentDay").text(moment().format('dddd ll'));
 
 // Loops through textArea hours 
 for (let i of textAreaTimeArray) {
-    if (now === now) {
+    
+    // If it is the current time…
+    if (now) {
 
-        // Sets background to red
+        // …set the background to red
         $(textAreaTimeArray[i]).addClass("present");
-    } else if (now === now.isAfter()) {
+
+      // If it is after the current time… 
+    } else if (now.isAfter(now)) {
         
-        // Sets background to green
+        // …set the background to green
         $(textAreaTimeArray[i]).addClass("future");
+
+      // If it is before the current time…   
     } else {
         
-        // Sets background to grey
+        // …set the background to grey
         $(textAreaTimeArray[i]).addClass("past");
     }
     
 };
 
 
+// —————————————————————————————————————————————————————————————————————
 
 
 
