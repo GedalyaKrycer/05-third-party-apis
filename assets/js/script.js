@@ -26,14 +26,9 @@ let textAreaTimeDesignations = {
     fivePmTime: $(nineAmInput).attr("data-hour", now.hour(17))
 };
 
-console.log(textAreaTimeDesignations.nineAmTime);
-
 
 // Creates an array from the object above
 let textAreaTimeArray = Object.values(textAreaTimeDesignations);
-
-
-
 
 
 // —————————————————————————————————————————————————————————————————————
@@ -88,19 +83,3 @@ $("button").on("click", function(event) {
     localStorage.setItem('input5', JSON.stringify(fivePmInput));
     
 });
-
-
-
-
-
-
-
-
-// WHEN I view the timeblocks for that day
-// THEN each timeblock is color coded to indicate whether it is in the past, present, or future
-// WHEN I click into a timeblock
-// THEN I can enter an event
-// WHEN I click the save button for that timeblock
-// THEN the text for that event is saved in local storage
-// WHEN I refresh the page
-// THEN the saved events persist
