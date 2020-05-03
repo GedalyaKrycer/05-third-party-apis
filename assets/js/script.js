@@ -1,7 +1,18 @@
 // Displays current date in the header using moment.js API
 $("#currentDay").text(moment().format('dddd ll'));
 
-
+// Array to capture all of the TextArea Id
+var textAreaArray = [
+    $("#nineAmInput"), 
+    $("#tenAmInput"),
+    $("#elevenAmInput"),
+    $("#twelvePmInput"),
+    $("#onePmInput"),
+    $("#twoPmInput"),
+    $("#threePmInput"),
+    $("#fourPmInput"),
+    $("#fivePmInput")
+]; 
 
 
 
