@@ -13,26 +13,25 @@ let fourPmInput = $("#fourPmInput");
 let fivePmInput = $("#fivePmInput"); 
 
 
-// Assigns a time to each textArea Element in an object
+// Assigns a time to each textArea Element in an object and stored it as an attribut on that html element
 let textAreaTimeDesignations = {
-    nineAmInput: now.hour(9),
-    tenAmInput: now.hour(10),
-    elevenAmInput: now.hour(11),
-    twelvePmInput: now.hour(12),
-    onePmInput: now.hour(13),
-    twoPmInput: now.hour(14),
-    threePmInput: now.hour(15),
-    fourPmInput: now.hour(16),
-    fivePmInput: now.hour(17)
+    nineAmTime: $(nineAmInput).attr("data-hour", now.hour(9)),
+    tenAmTime: $(nineAmInput).attr("data-hour", now.hour(10)),
+    elevenAmTime: $(nineAmInput).attr("data-hour", now.hour(11)),
+    twelvePmTime: $(nineAmInput).attr("data-hour", now.hour(12)),
+    onePmTime: $(nineAmInput).attr("data-hour", now.hour(13)),
+    twoPmTime: $(nineAmInput).attr("data-hour", now.hour(14)),
+    threePmTime: $(nineAmInput).attr("data-hour", now.hour(15)),
+    fourPmTime: $(nineAmInput).attr("data-hour", now.hour(16)),
+    fivePmTime: $(nineAmInput).attr("data-hour", now.hour(17))
 };
 
-console.log(textAreaTimeDesignations.fivePmInput);
+console.log(textAreaTimeDesignations.nineAmTime);
 
 
 // Creates an array from the object above
-let textAreaTimeArray = Object.keys(textAreaTimeDesignations);
+let textAreaTimeArray = Object.values(textAreaTimeDesignations);
 
-console.log(textAreaTimeArray[0]);
 
 
 
@@ -74,6 +73,21 @@ for (let i of textAreaTimeArray) {
 
 // —————————————————————————————————————————————————————————————————————
 
+$("button").on("click", function(event) {
+    event.preventDefault();
+
+    // Set up values to gather on button click
+    localStorage.setItem('input9', JSON.stringify(nineAmInput));
+    localStorage.setItem('input10', JSON.stringify(tenAmInput));
+    localStorage.setItem('input11', JSON.stringify(elevenAmInput));
+    localStorage.setItem('input12', JSON.stringify(twelvePmInput));
+    localStorage.setItem('input1', JSON.stringify(onePmInput));
+    localStorage.setItem('input2', JSON.stringify(twoPmInput));
+    localStorage.setItem('input3', JSON.stringify(threePmInput));
+    localStorage.setItem('input4', JSON.stringify(fourPmInput));
+    localStorage.setItem('input5', JSON.stringify(fivePmInput));
+    
+});
 
 
 
